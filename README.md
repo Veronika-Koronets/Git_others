@@ -50,7 +50,195 @@ $ git status -s
 AM 2.txt
 A  README
 ```
+## 3. git fetch
+```
+kv@kvPC MINGW64 /d
+$ git clone https://github.com/Veronika-Koronets/1.git
+Cloning into '1'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
 
+kv@kvPC MINGW64 /d
+$ cd 1
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git fetch
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 658 bytes | 28.00 KiB/s, done.
+From https://github.com/Veronika-Koronets/1
+   7f18a11..1c9d31e  main       -> origin/main
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git pull
+Updating 7f18a11..1c9d31e
+Fast-forward
+ new_file | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new_file
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+kv@kvPC MINGW64 /d/1 (main)
+$ ls -la
+total 22
+drwxr-xr-x 1 kv 197121 0 Sep 27 21:26 ./
+drwxr-xr-x 1 kv 197121 0 Sep 27 21:22 ../
+drwxr-xr-x 1 kv 197121 0 Sep 27 21:26 .git/
+-rw-r--r-- 1 kv 197121 3 Sep 27 21:23 README.md
+-rw-r--r-- 1 kv 197121 2 Sep 27 21:26 new_file
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git fetch
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git fetch
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), 660 bytes | 34.00 KiB/s, done.
+From https://github.com/Veronika-Koronets/1
+   1c9d31e..cefbe8a  main       -> origin/main
+```
+## git show
+```
+kv@kvPC MINGW64 /d/1 (main)
+$ git show
+commit 1c9d31e8ab403cc07f9b06833e0e7693a4741962 (HEAD -> main)
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Wed Sep 27 21:24:35 2023 +0300
+
+    Create new_file
+
+diff --git a/new_file b/new_file
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/new_file
+@@ -0,0 +1 @@
++
+```
+```
+kv@kvPC MINGW64 /d/1 (main)
+$ git show 7f18a11e674692626e30a6ac6b480fba4d47ee33
+commit 7f18a11e674692626e30a6ac6b480fba4d47ee33
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Tue Sep 26 17:33:05 2023 +0300
+
+    Initial commit
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..8b5f678
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++# 1
+\ No newline at end of file
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git show  1c9d31e8ab403cc07f9b06833e0e7693a4741962
+commit 1c9d31e8ab403cc07f9b06833e0e7693a4741962 (HEAD -> main)
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Wed Sep 27 21:24:35 2023 +0300
+
+    Create new_file
+
+diff --git a/new_file b/new_file
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/new_file
+@@ -0,0 +1 @@
++
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git show  7f18a11..1c9d31e
+commit 1c9d31e8ab403cc07f9b06833e0e7693a4741962 (HEAD -> main)
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Wed Sep 27 21:24:35 2023 +0300
+
+    Create new_file
+
+diff --git a/new_file b/new_file
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/new_file
+@@ -0,0 +1 @@
++
+```
+## git reset
+```
+kv@kvPC MINGW64 /d/1 (main)
+$ cat > file.txt
+123
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git add file.txt
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file.txt
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git reset file.txt
+
+kv@kvPC MINGW64 /d/1 (main)
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
 
 ## 3. git diff
 ```
@@ -102,7 +290,8 @@ $ git commit -v
 ```
 
 
-## 5. 
+## 5. git rm
+``git rm --cached file`` - make tracked file to be untracked
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git rm --cached README
