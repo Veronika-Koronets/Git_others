@@ -276,7 +276,6 @@ index 0000000..56266d3
 +My Project
 ```
 
-
 ## 4. 
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
@@ -288,7 +287,6 @@ $ git commit -v
 [main cb9dd8e] commit
  1 file changed, 1 insertion(+)
 ```
-
 
 ## 5. git rm
 ``git rm --cached file`` - make tracked file to be untracked
@@ -329,6 +327,8 @@ Changes to be committed:
         deleted:    123
         deleted:    README
 ```
+``` git rm log/\*.log
+
 
 
 ## 6. git mv
@@ -357,8 +357,6 @@ Changes to be committed:
         renamed:    2.txt -> 4.txt
         deleted:    README
 ```
-
-
 
 ## 7. git log
 ```
@@ -392,7 +390,6 @@ Date:   Tue Aug 15 20:10:42 2023 +0300
 
 git log -p 
 ```
-
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git log -p -2
 commit cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main)
@@ -486,7 +483,6 @@ cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main) commit
 9a3229513413b5e873c0b99e3018b3f7faa8488b (origin/main, origin/HEAD) Create 123
 0dbadb73df68c01ee9d267de812772fa70c99737 Initial commit
 ```
-
 
 ## 8. git remote
 ```
