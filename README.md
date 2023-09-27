@@ -52,7 +52,7 @@ A  README
 ```
 
 
-git diff
+## 3. git diff
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git diff
@@ -88,6 +88,8 @@ index 0000000..56266d3
 +My Project
 ```
 
+
+## 4. 
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git commit
@@ -99,6 +101,8 @@ $ git commit -v
  1 file changed, 1 insertion(+)
 ```
 
+
+## 5. 
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git rm --cached README
@@ -137,6 +141,8 @@ Changes to be committed:
         deleted:    README
 ```
 
+
+## 6. git mv
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ ls -la
@@ -163,7 +169,9 @@ Changes to be committed:
         deleted:    README
 ```
 
-git log
+
+
+## 7. git log
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git log
@@ -290,7 +298,8 @@ cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main) commit
 0dbadb73df68c01ee9d267de812772fa70c99737 Initial commit
 ```
 
-git remote
+
+## 8. git remote
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote
