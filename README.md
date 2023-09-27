@@ -162,3 +162,130 @@ Changes to be committed:
         renamed:    2.txt -> 4.txt
         deleted:    README
 ```
+
+git log
+```
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git log
+commit cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main)
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 18:46:00 2023 +0300
+
+    commit
+
+commit 2197819d515f514013ca73b09dba3bd2d01de2f1
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 17:59:09 2023 +0300
+
+     #
+
+commit 9a3229513413b5e873c0b99e3018b3f7faa8488b (origin/main, origin/HEAD)
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Tue Aug 15 20:13:23 2023 +0300
+
+    Create 123
+
+commit 0dbadb73df68c01ee9d267de812772fa70c99737
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Tue Aug 15 20:10:42 2023 +0300
+
+    Initial commit
+(END)
+```
+
+git log -p 
+```
+
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git log -p -2
+commit cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main)
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 18:46:00 2023 +0300
+
+    commit
+
+diff --git a/2.txt b/2.txt
+index 31b46ad..7c0b0c7 100644
+--- a/2.txt
++++ b/2.txt
+@@ -2,3 +2,4 @@
+ 334455
+ 55566
+ 789
++yui
+
+commit 2197819d515f514013ca73b09dba3bd2d01de2f1
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 17:59:09 2023 +0300
+
+     #
+
+diff --git a/2.txt b/2.txt
+```
+
+git log --stat
+```
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git log --stat
+commit cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main)
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 18:46:00 2023 +0300
+
+    commit
+
+ 2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2197819d515f514013ca73b09dba3bd2d01de2f1
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 17:59:09 2023 +0300
+
+     #
+
+ 2.txt  | 4 ++++
+ README | 2 ++
+ 2 files changed, 6 insertions(+)
+
+commit 9a3229513413b5e873c0b99e3018b3f7faa8488b (origin/main, origin/HEAD)
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Tue Aug 15 20:13:23 2023 +0300
+```
+
+git log --pretty
+```
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git log --pretty
+commit cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main)
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 18:46:00 2023 +0300
+
+    commit
+
+commit 2197819d515f514013ca73b09dba3bd2d01de2f1
+Author: Veronika-Koronets <koronec.v@mail.ru>
+Date:   Sat Aug 19 17:59:09 2023 +0300
+
+     #
+
+commit 9a3229513413b5e873c0b99e3018b3f7faa8488b (origin/main, origin/HEAD)
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Tue Aug 15 20:13:23 2023 +0300
+
+    Create 123
+
+commit 0dbadb73df68c01ee9d267de812772fa70c99737
+Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
+Date:   Tue Aug 15 20:10:42 2023 +0300
+
+    Initial commit
+```
+
+git log --pretty=oneline
+```
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git log --pretty=oneline
+cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main) commit
+2197819d515f514013ca73b09dba3bd2d01de2f1  #
+9a3229513413b5e873c0b99e3018b3f7faa8488b (origin/main, origin/HEAD) Create 123
+0dbadb73df68c01ee9d267de812772fa70c99737 Initial commit
+```
