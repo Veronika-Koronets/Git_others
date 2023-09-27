@@ -289,3 +289,33 @@ cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main) commit
 9a3229513413b5e873c0b99e3018b3f7faa8488b (origin/main, origin/HEAD) Create 123
 0dbadb73df68c01ee9d267de812772fa70c99737 Initial commit
 ```
+
+git remote
+```
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git remote
+origin
+
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git remote -v
+origin  https://github.com/Veronika-Koronets/15.08.git (fetch)
+origin  https://github.com/Veronika-Koronets/15.08.git (push)
+```
+git remote rename
+```
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git remote rename origin origin1
+Renaming remote references: 100% (3/3), done.
+
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git remote
+origin1
+```
+git remote remove
+```
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git remote remove origin1
+
+kv@kvPC MINGW64 /d/16.08 (main)
+$ git remote
+```
