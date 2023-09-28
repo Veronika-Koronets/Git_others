@@ -17,8 +17,6 @@ $ cd 16.08
 ## 1.2. git init 
 
 ## 2. git status
-``git status -s`` or ``git status --short`` 
-
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git status
@@ -29,7 +27,9 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         new file:   2.txt
         new file:   README
-
+```
+``git status -s`` or ``git status --short`` - упрощённый вывод. ``А`` значит файл индексирован, добавлен в отслеживание. ``М`` - modified. ``AM`` файл был индексрован и изменён после этого
+```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git status -s
 A  2.txt
