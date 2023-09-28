@@ -1,7 +1,7 @@
 # Git_others
 
 ## 1.1. To clone a remote repository with a different name 
-``git clone`` ***link*** **new name of repo**
+``git clone`` [link] [new name of repo]
 ```
 kv@kvPC MINGW64 /d
 $ git clone https://github.com/Veronika-Koronets/15.08.git 16.08
@@ -52,7 +52,7 @@ A  README
 ```
 ## 3. git fetch. Получает актуальную информацию о состоянии удалённых веток. Связывается с удалённым репозиторием и забирает из него все изменения, которых у вас пока нет и сохраняет их локально. Если кто-то сделал push в ветку, гит скачает недостающие коммиты и передвинет ветки слежения.
 git pull = git fetch + git merge
-``git fetch *name_of_repo* ``
+``git fetch [name_of_repo] `` or ``git fetch``
 ```
 kv@kvPC MINGW64 /d
 $ git clone https://github.com/Veronika-Koronets/1.git
@@ -146,7 +146,7 @@ index 0000000..8b13789
 @@ -0,0 +1 @@
 +
 ```
-Можно указать хэш-сумму коммита ``git show **commit** ``
+Можно указать хэш-сумму коммита ``git show [commit] ``
 ```
 kv@kvPC MINGW64 /d/1 (main)
 $ git show 7f18a11e674692626e30a6ac6b480fba4d47ee33
@@ -198,7 +198,7 @@ index 0000000..8b13789
 +
 ```
 
-## git reset. ? Отмена изменений. Изменяет указатель HEAD
+## git reset [file]. ? Отмена изменений. Изменяет указатель HEAD
 ```
 kv@kvPC MINGW64 /d/1 (main)
 $ cat > file.txt
@@ -244,6 +244,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
+``git reset HEAD [file]`` - удаляет файл из индекса, но оставляет в отслеживании, т.е. удаляет его из включения в коммит при ошибочном git add .
 
 ## 3. git diff. Выявляет разницу. Выводит изменения в файлах, которые еще не были добавлены в индекс. Сравнение происходит с последним коммитом
 ```
@@ -295,7 +296,8 @@ $ git commit -v
 ```
 
 ## 5. git rm. Используется в Git для удаления файлов из индекса и рабочей директории. 
-``git rm --cached [file]`` - удалить файл из отслеживания. Оставить локально, но удалить из индекса
+``git rm [file] - удалить файл
+``git rm --cached [file]`` - удалить файл из отслеживания. Оставить локально, но удалить из индекса. (= git restore --staged [file]) 
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git rm --cached README
@@ -333,7 +335,9 @@ Changes to be committed:
         deleted:    123
         deleted:    README
 ```
-?? ``` git rm log/\*.log
+
+
+# ?? ``` git rm log/\*.log
 
 
 
@@ -396,7 +400,7 @@ Date:   Tue Aug 15 20:10:42 2023 +0300
 ```
 
 ``git log -p`` - коммиты поподробнее
-``git log -p -2v`` - вывести подробнее 2 последних коммита 
+``git log -p -2`` - вывести подробнее 2 последних коммита 
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git log -p -2
@@ -453,7 +457,7 @@ Author: Veronika <130933875+Veronika-Koronets@users.noreply.github.com>
 Date:   Tue Aug 15 20:13:23 2023 +0300
 ```
 
-git log --pretty - меняется формат вывода
+``git log --pretty`` - меняется формат вывода
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git log --pretty
@@ -481,7 +485,6 @@ Date:   Tue Aug 15 20:10:42 2023 +0300
 
     Initial commit
 ```
-
 ``git log --pretty=oneline`` - каждый коммит в одну строку
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
@@ -499,7 +502,8 @@ kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote
 origin
 ```
-``git remote -v``- какие удалённые репозитории доступны
+
+``git remote -v``- какие удалённые репозитории доступны``
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote -v
@@ -507,7 +511,7 @@ origin  https://github.com/Veronika-Koronets/15.08.git (fetch)
 origin  https://github.com/Veronika-Koronets/15.08.git (push)
 ```
 
-git remote rename [old name of repo] [new name of repo] 
+``git remote rename [old name of repo] [new name of repo]`` - переименовать репозиторий
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote rename origin origin1
@@ -517,7 +521,8 @@ kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote
 origin1
 ```
-git remote remove
+
+``git remote remove [remote repo]`` - удалить("забыть") удалённый репозиторий
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote remove origin1
@@ -525,7 +530,11 @@ $ git remote remove origin1
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote
 ```
+``git remote add <название удаленного репозитория> <ссылка на удаленный репозиторий>`` - подключает удаленный репозиторий к вашему под переданным именем. Ссылку взять по кнопке ``Code`` в репо на Github
+```
+$ git remote add origin git@github.com:smartiqaorg/geometric_lib.git
+```
 
-
-## git restore file. Откатить состояние файла до последнего коммита
-git restore --staged **file** - отмена индексации
+## git restore
+``git restore [file]``- откатить состояние файла до последнего коммита
+``git restore --staged [file]`` - отмена индексации. (= git rm --cached [file]) 
