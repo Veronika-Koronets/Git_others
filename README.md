@@ -28,7 +28,7 @@ Changes to be committed:
         new file:   2.txt
         new file:   README
 ```
-``git status -s`` or ``git status --short`` - упрощённый вывод. ``А`` значит файл индексирован, добавлен в отслеживание. ``М`` - modified. ``AM`` файл был индексрован и изменён после этого
+``git status -s`` or ``git status --short`` - упрощённый вывод. ``А`` значит файл индексирован, добавлен в отслеживание. ``М`` - modified. ``AM`` - файл был индексрован и изменён после этого
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git status -s
@@ -52,6 +52,7 @@ A  README
 ```
 ## 3. git fetch. Получает актуальную информацию о состоянии удалённых веток. Связывается с удалённым репозиторием и забирает из него все изменения, которых у вас пока нет и сохраняет их локально. Если кто-то сделал push в ветку, гит скачает недостающие коммиты и передвинет ветки слежения.
 git pull = git fetch + git merge
+
 ``git fetch [name_of_repo] `` or ``git fetch``
 ```
 kv@kvPC MINGW64 /d
@@ -127,7 +128,7 @@ Unpacking objects: 100% (2/2), 660 bytes | 34.00 KiB/s, done.
 From https://github.com/Veronika-Koronets/1
    1c9d31e..cefbe8a  main       -> origin/main
 ```
-## git show. Используется для отображения полной информации о любом объекте в Git, будь то коммит или ветка. По умолчанию git show отображает информацию коммита, на который в данный момент времени указывает HEAD.
+## 4. git show. Используется для отображения полной информации о любом объекте в Git, будь то коммит или ветка. По умолчанию git show отображает информацию коммита, на который в данный момент времени указывает HEAD.
 ``git show``  выводит информацию о последнем коммите 
 ```
 kv@kvPC MINGW64 /d/1 (main)
@@ -198,7 +199,7 @@ index 0000000..8b13789
 +
 ```
 
-## git reset [file]. ? Отмена изменений. Изменяет указатель HEAD
+## 5. git reset [file]. ? Отмена изменений. Изменяет указатель HEAD
 ```
 kv@kvPC MINGW64 /d/1 (main)
 $ cat > file.txt
@@ -246,7 +247,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 ``git reset HEAD [file]`` - удаляет файл из индекса, но оставляет в отслеживании, т.е. удаляет его из включения в коммит при ошибочном git add .
 
-## 3. git diff. Выявляет разницу. Выводит изменения в файлах, которые еще не были добавлены в индекс. Сравнение происходит с последним коммитом
+## 6. git diff. Выявляет разницу. Выводит изменения в файлах, которые еще не были добавлены в индекс. Сравнение происходит с последним коммитом
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git diff
@@ -261,6 +262,7 @@ index ef3ef28..95dc1b9 100644
 +55566
 ```
 Разница между индексом и последним коммитом (``git diff --staged``), или между любыми двумя коммитами (``git diff master branchB``)
+
 ``git diff --staged`` or ``git diff --cached`` - посмотреть, что проиндексировано и что войдет в следующий коммит
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
@@ -282,7 +284,7 @@ index 0000000..56266d3
 +My Project
 ```
 
-## 4. git commit
+## 7. git commit
 ``git commit -v`` = ``git commit`` + показывает, что изменилось в файле
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
@@ -295,9 +297,10 @@ $ git commit -v
  1 file changed, 1 insertion(+)
 ```
 
-## 5. git rm. Используется в Git для удаления файлов из индекса и рабочей директории. 
-``git rm [file] - удалить файл
-``git rm --cached [file]`` - удалить файл из отслеживания. Оставить локально, но удалить из индекса. (= git restore --staged [file]) 
+## 8. git rm. Для удаления файлов из индекса и рабочей директории 
+``git rm [file]`` - удалить файл
+
+``git rm --cached [file]`` - удалить файл из отслеживания. Оставить локально, но удалить из индекса. (= ``git restore --staged [file]``) 
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git rm --cached README
@@ -318,7 +321,7 @@ Untracked files:
   (use "git add <file>..." to include in what will be committed)
         README
 ```
-``git rm -f [file]`` - принудаительное удаление проиндексированных файлов
+``git rm -f [file]`` - принудительное удаление проиндексированных файлов
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git rm -f README
@@ -339,10 +342,12 @@ Changes to be committed:
 
 # ?? ``` git rm log/\*.log
 
+## 9. git restore
+``git restore [file]``- откатить состояние файла до последнего коммита
+``git restore --staged [file]`` - отмена индексации. (= git rm --cached [file]) 
 
-
-## 6. git mv. Переименовать файл
-``git mv [old name of file] [new name of file]``
+## 10. git mv. Переимещение файлов
+``git mv [old name of file] [new name of file]``- - переименовать файл
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ ls -la
@@ -369,7 +374,7 @@ Changes to be committed:
         deleted:    README
 ```
 
-## 7. git log. История изменений
+## 11. git log. История изменений
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git log
@@ -400,6 +405,7 @@ Date:   Tue Aug 15 20:10:42 2023 +0300
 ```
 
 ``git log -p`` - коммиты поподробнее
+
 ``git log -p -2`` - вывести подробнее 2 последних коммита 
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
@@ -495,7 +501,7 @@ cb9dd8e102b5f3b5297e594d695c6d118c542a66 (HEAD -> main) commit
 0dbadb73df68c01ee9d267de812772fa70c99737 Initial commit
 ```
 
-## 8. git remote. Управление удалёнными репозиториями
+## 12. git remote. Управление удалёнными репозиториями
 ``git remote`` - вывести список настроенных удалённых репозиториев
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
@@ -503,7 +509,7 @@ $ git remote
 origin
 ```
 
-``git remote -v``- какие удалённые репозитории доступны``
+``git remote -v``- какие удалённые репозитории доступны
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote -v
@@ -522,7 +528,7 @@ $ git remote
 origin1
 ```
 
-``git remote remove [remote repo]`` - удалить("забыть") удалённый репозиторий
+``git remote remove [remote repo]`` - удалить ("забыть") удалённый репозиторий
 ```
 kv@kvPC MINGW64 /d/16.08 (main)
 $ git remote remove origin1
@@ -535,6 +541,3 @@ $ git remote
 $ git remote add origin git@github.com:smartiqaorg/geometric_lib.git
 ```
 
-## git restore
-``git restore [file]``- откатить состояние файла до последнего коммита
-``git restore --staged [file]`` - отмена индексации. (= git rm --cached [file]) 
