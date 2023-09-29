@@ -553,6 +553,9 @@ rm -rf .git
 
 ``git branch`` - показать ветки и где находимся
 
+``git branch [branchname]`` - создать ветку
+``git branch [branchname] && git branch [branchname2] && git branch [branchname3] ...`` - создать несколько веток в 1 строку
+
 ``git branch -d [branchname]`` - удалить ветку, что вмёржили
 
 ``git branch -D [branchname]`` - удалить ветку, которую не смержили
@@ -562,12 +565,15 @@ rm -rf .git
 2) git push --set-upstream origin [new branchname] - новое имя ветки видно удалённо
 3) git push origin --delete [old branchname] - удаление ветки со старым именем
 
-``git push -u origin [new branch]`` - послке создания новой ветки её необходимо запушить
+## git push
+``git push`` - отравить в удалённый репозиторий
+
+``git push -u origin [new branch]`` - после создания новой ветки её необходимо запушить
 
 ``git push origin --all [new branch]`` - запушить сразу все ветки
 
-``git push origin [ветка, в кот. будем пушить файл``]
+``git push origin [ветка, в кот. будем пушить файл]``
 
 ## git checkout ?????
-Основная функция git checkout это перемещать указатель HEAD, т.е. то куда смотрит ваша локальная копия. Вы можете переместить его на вершину ветки: git checkout <branch> или на отдельный коммит: git checkout <sha> Ну а вспомогательные это создание веток: git checkout -b, отмена изменений в файле:git checkout -- <file>
-git checkout отменяет изменения файла, достаточно прописать git checkout <Имя файла> и он будет возвращен в первичное состояние коммита
+Основная функция git checkout это перемещать указатель HEAD, т.е. то куда смотрит ваша локальная копия. Вы можете переместить его на вершину ветки:  ``git checkout <branch>`` или на отдельный коммит: ``git checkout <sha>`` Ну а вспомогательные это создание веток: git checkout -b, отмена изменений в файле: ``git checkout -- <file>``
+``git checkout [file]`` отменяет изменения файла, достаточно прописать git checkout <Имя файла> и он будет возвращен в первичное состояние коммита
