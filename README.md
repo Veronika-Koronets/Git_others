@@ -551,13 +551,13 @@ rm -rf .git
 # Операции с ветками
 ## 13. git branch 
 ``git branch`` - показать ветки и где находимся
-``git branch -d [branch]`` - удалить ветку, что вмёржили
-``git branch -D [branch]`` - удалить ветку, которую не смержили
+``git branch -d [branchname]`` - удалить ветку, что вмёржили
+``git branch -D [branchname]`` - удалить ветку, которую не смержили
 
 ????? Переименовать ветку:
-1) git branch --move [old name of branch] [new name of branch] - переименовать ветку (локально)
-2) git push --set-upstream origin [new name] - новое имя ветки видно удалённо
-3) git push origin --delete [old name] - удаление ветки со старым именем
+1) git branch --move [old branchname] [new branchname] - переименовать ветку (локально)
+2) git push --set-upstream origin [new branchname] - новое имя ветки видно удалённо
+3) git push origin --delete [old branchname] - удаление ветки со старым именем
 
 ## git checkout ?????
 Основная функция git checkout это перемещать указатель HEAD, т.е. то куда смотрит ваша локальная копия. Вы можете переместить его на вершину ветки: git checkout <branch> или на отдельный коммит: git checkout <sha> Ну а вспомогательные это создание веток: git checkout -b, отмена изменений в файле:git checkout -- <file>
