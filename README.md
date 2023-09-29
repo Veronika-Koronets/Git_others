@@ -1,5 +1,10 @@
 # Git_others
 
+Полезные ссылки:
+1. https://git-scm.com/book/ru/v2/
+2. 
+3. 
+
 ## 1.1. To clone a remote repository
 ``git clone [link]``
 or
