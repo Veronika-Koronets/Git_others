@@ -550,8 +550,11 @@ rm -rf .git
 
 # Операции с ветками
 ## 13. git branch 
+
 ``git branch`` - показать ветки и где находимся
+
 ``git branch -d [branchname]`` - удалить ветку, что вмёржили
+
 ``git branch -D [branchname]`` - удалить ветку, которую не смержили
 
 ????? Переименовать ветку:
@@ -560,8 +563,10 @@ rm -rf .git
 3) git push origin --delete [old branchname] - удаление ветки со старым именем
 
 ``git push -u origin [new branch]`` - послке создания новой ветки её необходимо запушить
+
 ``git push origin --all [new branch]`` - запушить сразу все ветки
-``git push origin [ветка, в кот. будем пушить файл``
+
+``git push origin [ветка, в кот. будем пушить файл``]
 
 ## git checkout ?????
 Основная функция git checkout это перемещать указатель HEAD, т.е. то куда смотрит ваша локальная копия. Вы можете переместить его на вершину ветки: git checkout <branch> или на отдельный коммит: git checkout <sha> Ну а вспомогательные это создание веток: git checkout -b, отмена изменений в файле:git checkout -- <file>
