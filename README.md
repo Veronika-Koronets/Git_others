@@ -1,7 +1,8 @@
 # Git_others
 
 ## 1.1. To clone a remote repository with a different name 
-``git clone`` [link] [new name of repo]
+``git clone [link]``
+``git clone [link] [new name of repo]`` - to clone  with a different name 
 ```
 kv@kvPC MINGW64 /d
 $ git clone https://github.com/Veronika-Koronets/15.08.git 16.08
