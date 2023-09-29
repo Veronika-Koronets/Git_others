@@ -1,6 +1,6 @@
 # Git_others
 
-## 1.1. To clone a remote repository with a different name 
+## 1.1. To clone a remote repository
 ``git clone [link]``
 or
 
