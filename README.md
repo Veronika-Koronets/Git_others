@@ -2,6 +2,7 @@
 
 ## 1.1. To clone a remote repository with a different name 
 ``git clone [link]``
+or
 ``git clone [link] [new name of repo]`` - to clone  with a different name 
 ```
 kv@kvPC MINGW64 /d
